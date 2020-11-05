@@ -1,4 +1,4 @@
-<p>Lista de tortas</p>
+<h3>Lista de tartas</h3>
 <table class="table">
     <thead>
         <tr>
@@ -9,21 +9,12 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr *ngFor="let cake of cakes" [ngClass]="{'clearance': cake.clearance}">
             <td><img [src]="cake.image" [alt]="cake.name"></td>
-            <td>{{cake.name}}</td>
-            <td>{{cake.price}}</td>
-            <td>{{cake.stock}}</td>
-        </tr>
-        <tr>
-            <td>Tarta cabsha</td>
-            <td>200</td>
-            <td>6</td>
-        </tr>
-        <tr>
-            <td>Tarta de Frutilla</td>
-            <td>200</td>
-            <td>5</td>
+            <td>{{cake.name }}</td>
+            <td>{{cake.price | currency}}</td>
+            <td><span class="badge badge-dark" *ngIf="cake.stock==0">SIN STOCK</span></td>
+            
         </tr>
     </tbody>
 </table>

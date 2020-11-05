@@ -1,3 +1,14 @@
 p{
-    color:blue;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+th{
+    color:grey;
+}
+
+.clearance{
+    border: 2px solid lightsteelblue;
+    background-color: lightsteelblue;
 }
