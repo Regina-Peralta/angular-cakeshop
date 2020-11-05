@@ -1,0 +1,29 @@
+<p>Lista de tortas</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Imagen</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img [src]="cake.image" [alt]="cake.name"></td>
+            <td>{{cake.name}}</td>
+            <td>{{cake.price}}</td>
+            <td>{{cake.stock}}</td>
+        </tr>
+        <tr>
+            <td>Tarta cabsha</td>
+            <td>200</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>Tarta de Frutilla</td>
+            <td>200</td>
+            <td>5</td>
+        </tr>
+    </tbody>
+</table>
