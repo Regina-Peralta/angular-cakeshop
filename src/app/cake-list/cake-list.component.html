@@ -6,15 +6,21 @@
             <th>Nombre</th>
             <th>Precio</th>
             <th>Stock</th>
+            <th>Compra</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let cake of cakes" [ngClass]="{'clearance': cake.clearance}">
-            <td><img [src]="cake.image" [alt]="cake.name"></td>
+            <td><img width="200" class="img-thumbnail"
+                [src]="cake.image" [alt]="cake.name"></td>
             <td>{{cake.name }}</td>
             <td>{{cake.price | currency}}</td>
             <td><span class="badge badge-dark" *ngIf="cake.stock==0">SIN STOCK</span></td>
-            
+            <td>
+                <button class="btn btn-secondary btn-xs" (click)="downQuantity(cake)">-</button> 
+                <input  class="form-control " id="inputsm" type="number" [(ngModel)]="cake.quantity" (keyup)="changeQuantiy(cake)" >
+                <button class="btn btn-secondary btn-xs" (click)="upQuantity(cake)">+</button>
+            </td>
         </tr>
     </tbody>
 </table>

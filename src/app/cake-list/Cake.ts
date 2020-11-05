@@ -4,4 +4,5 @@ export interface Cake{
     stock:number;
     image: string;
     clearance: boolean;
+    quantity: number;
 }

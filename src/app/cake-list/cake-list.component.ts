@@ -15,6 +15,7 @@ export class CakeListComponent implements OnInit {
       stock: 5,
       image: "assets/img/chocotorta.jpg",
       clearance: false,
+      quantity: 0,
     },
     {
       name: "Tarta cabsha",
@@ -22,6 +23,7 @@ export class CakeListComponent implements OnInit {
       stock: 6,
       image: "assets/img/tartaCabsha.jpg",
       clearance: true,
+      quantity: 0,
     },
     {
       name: "Tarta de frutilla",
@@ -29,6 +31,7 @@ export class CakeListComponent implements OnInit {
       stock: 0,
       image: "assets/img/tartaFrutilla.jpg",
       clearance: false,
+      quantity: 0,
     },
     {
       name: "Tarta de coco",
@@ -36,6 +39,7 @@ export class CakeListComponent implements OnInit {
       stock: 0,
       image: "assets/img/tartaCoco.jpg",
       clearance: false,
+      quantity: 0,
     }
 
   ]
@@ -44,6 +48,26 @@ export class CakeListComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+
+  upQuantity(cake : Cake): void{
+    if(cake.quantity <= cake.stock && cake.stock != 0)
+    cake.quantity++;
+  }
+
+  downQuantity(cake : Cake): void{
+    if(cake.quantity != 0)
+    cake.quantity--;
+  }
+
+  changeQuantiy(cake:Cake): void{
+    if(cake.quantity > cake.stock) {
+      alert("No hay suficientes cervezas en stock");
+    }
+    if(cake.quantity < 0) {
+      alert("No se pueden encargar cervezas negativas ");
+    }
   }
 
 }
