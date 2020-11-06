@@ -1,5 +1,5 @@
 <h3>Lista de tartas</h3>
-<table class="table">
+<table class="table text-center">
     <thead>
         <tr>
             <th>Imagen</th>
@@ -15,11 +15,16 @@
                 [src]="cake.image" [alt]="cake.name"></td>
             <td>{{cake.name }}</td>
             <td>{{cake.price | currency}}</td>
-            <td><span class="badge badge-dark" *ngIf="cake.stock==0">SIN STOCK</span></td>
             <td>
-                <button class="btn btn-secondary btn-xs" (click)="downQuantity(cake)">-</button> 
-                <input  class="form-control " id="inputsm" type="number" [(ngModel)]="cake.quantity" (keyup)="changeQuantiy(cake)" >
-                <button class="btn btn-secondary btn-xs" (click)="upQuantity(cake)">+</button>
+                   <span class="badge badge-dark" *ngIf="cake.stock==0">SIN STOCK</span>
+                   <div>
+                       <span class="badge badge-success" *ngIf="cake.stock!=0">DISPONIBLE</span> 
+                       <span class="badge badge-info" *ngIf="cake.clearance">OFERTA</span>
+                   </div>
+                     
+            </td>
+            <td>
+               <app-input-integer [(quantity)]="cake.quantity" [max]="cake.stock" (maxReached)="maxReached($event)" *ngIf="cake.stock" ></app-input-integer>
             </td>
         </tr>
     </tbody>

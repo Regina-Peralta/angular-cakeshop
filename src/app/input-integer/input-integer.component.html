@@ -1,0 +1,9 @@
+<div class="input-group" >
+    <div class="input-group">
+        <div class="input-group-prepend">
+            <button class="btn btn-secondary btn-xs" (click)="downQuantity()">-</button>   
+                <input type="number" [(ngModel)]="quantity" (keyup)="changeQuantiy()" >
+            <button class="btn btn-secondary btn-xs" (click)="upQuantity()">+</button>
+        </div>
+    </div>
+</div>
